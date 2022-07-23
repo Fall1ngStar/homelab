@@ -1,6 +1,6 @@
-.PHONY: namespace argocd
+.PHONY: namespace argocd root
 
-default: namespace argocd
+default: namespace argocd root
 
 namespace:
 	kubectl create namespace argocd --dry-run=client --output=yaml \
@@ -12,4 +12,8 @@ argocd/charts: argocd/Chart.yaml
 
 argocd: argocd/charts
 	cd argocd && \
+		./apply.sh
+
+root:
+	cd root && \
 		./apply.sh
