@@ -1,0 +1,9 @@
+longhorn:
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    host: longhorn.int.tgarcin.fr
+    tls: true
+    tlsSecret: longhorn.int.tgarcin.fr-tls
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
