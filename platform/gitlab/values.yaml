@@ -3,3 +3,4 @@ global:
     configureCertmanager: false
   hosts:
     domain: tgarcin.fr
+  edition: ce
