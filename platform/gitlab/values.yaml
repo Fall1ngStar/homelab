@@ -1,3 +1,5 @@
 global:
+  ingress:
+    configureCertmanager: false
   hosts:
     domain: tgarcin.fr
