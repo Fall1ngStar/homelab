@@ -1,10 +1,37 @@
 global:
   ingress:
     configureCertmanager: false
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
   hosts:
     domain: tgarcin.fr
   edition: ce
 
 gitlab:
+  certmanager:
+    installCRDs: false
+    install: false
+    rbac:
+      create: false
+
+  nginx-ingress:
+    enabled: false  
+
+  gitlab:
+    webservice:
+      ingress:
+        tls:
+          secretName: gitlab-tls
+
+  registry:
+    ingress:
+      tls:
+        secretName: registry-tls
+
+  minio:
+    ingress:
+      tls:
+        secretName: minio-tls  
+
   upgradeCheck: 
     enabled: false
