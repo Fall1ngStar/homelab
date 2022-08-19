@@ -4,3 +4,6 @@ global:
   hosts:
     domain: tgarcin.fr
   edition: ce
+
+gitlab:
+  upgradeCheck: false
