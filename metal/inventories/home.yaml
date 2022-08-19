@@ -2,14 +2,14 @@ metal:
   children:
     masters:
       hosts:
-        helios: 
-          ansible_host: 10.0.0.88
+        tenes: 
+          ansible_host: 10.0.0.36
           ansible_user: root
     workers:
       hosts:
-        tenes:
-          ansible_host: 10.0.0.89
+        helios:
+          ansible_host: 10.0.0.35
           ansible_user: root
         eryx:
-          ansible_host: 10.0.0.87
+          ansible_host: 10.0.0.34
           ansible_user: root
