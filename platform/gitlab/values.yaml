@@ -6,4 +6,5 @@ global:
   edition: ce
 
 gitlab:
-  upgradeCheck: false
+  upgradeCheck: 
+    enabled: false
