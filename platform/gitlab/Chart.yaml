@@ -3,5 +3,5 @@ name: gitlab
 version: 0.0.0
 dependencies:
   - name: gitlab
-    version: 6.3.0
+    version: 6.2.2
     repository: https://charts.gitlab.io/
