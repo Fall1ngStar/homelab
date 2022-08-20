@@ -7,6 +7,8 @@ global:
   hosts:
     domain: tgarcin.fr
   edition: ce
+  grafana:
+    enabled: true
 
 gitlab:
   certmanager:
@@ -23,14 +25,14 @@ gitlab:
       ingress:
         tls:
           secretName: gitlab-tls
+    gitaly:
+      persistence:
+        storageClass: nfs-csi
 
   registry:
     ingress:
       tls:
         secretName: registry-tls
-  gitaly:
-    persistence:
-      storageClass: nfs-csi
 
   minio:
     ingress:
