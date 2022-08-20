@@ -1,0 +1,38 @@
+authentik:
+  authentik:
+    # This sends anonymous usage-data, stack traces on errors and
+    # performance data to sentry.beryju.org, and is fully opt-in
+    error_reporting:
+      enabled: false
+
+  env:
+    AUTHENTIK_AVATARS: https://avatars.dicebear.com/api/bottts/%(username)s.svg
+
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+    hosts:
+    - host: auth.tgarcin.fr
+      paths:
+      - path: "/"
+        pathType: Prefix
+    tls:
+      - hosts:
+          - auth.tgarcin.fr
+        secretName: auth.tgarcin.fr-tls
+
+  postgresql:
+    enabled: true
+    persistence:
+      enabled: true
+      storageClass: longhorn
+      accessModes:
+        - ReadWriteOnce
+  redis:
+    enabled: true
+    master:
+      persistence:
+        enabled: true
+        storageClass: longhorn
