@@ -8,7 +8,7 @@ global:
     domain: tgarcin.fr
   edition: ce
   grafana:
-    enabled: true
+    enabled: false
 
 gitlab:
   certmanager:
