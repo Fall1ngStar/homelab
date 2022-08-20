@@ -28,10 +28,15 @@ gitlab:
     ingress:
       tls:
         secretName: registry-tls
+  gitaly:
+    persistence:
+      storageClass: nfs-csi
 
   minio:
     ingress:
       tls:
         secretName: minio-tls
+    persistence:
+      storageClass: nfs-csi
   upgradeCheck:
     enabled: false
