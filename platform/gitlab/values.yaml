@@ -24,7 +24,7 @@ global:
 
 saml:
   name: saml
-  label: 'SAML'
+  label: 'saml'
   args:
     assertion_consumer_service_url: 'https://gitlab.tgarcin.fr/users/auth/saml/callback'
     idp_cert_fingerprint: 'a5:70:2c:82:c7:c6:02:8a:8c:75:79:98:eb:ea:01:94:10:6c:e5:d7'
