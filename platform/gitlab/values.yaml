@@ -9,17 +9,8 @@ global:
       blockAutoCreatedUsers: false
       autoLinkSamlUser: true
       providers:
-        - name: saml
-          args:
-            assertion_consumer_service_url: 'https://gitlab.tgarcin.fr/users/auth/saml/callback'
-            idp_cert_fingerprint: 'a5:70:2c:82:c7:c6:02:8a:8c:75:79:98:eb:ea:01:94:10:6c:e5:d7'
-            idp_sso_target_url: 'https://auth.tgarcin.fr/application/saml/gitlab/sso/binding/redirect/'
-            issuer: 'https://gitlab.tgarcin.fr'
-            name_identifier_format: 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress'
-            attribute_statements:
-              email: [ 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress' ]
-              first_name: [ 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name' ]
-              nickname: [ 'http://schemas.goauthentik.io/2021/02/saml/username' ]
+        - secret: gitlab-saml-provider
+          key: provider
   ingress:
     configureCertmanager: false
     class: nginx
@@ -30,6 +21,20 @@ global:
   edition: ce
   grafana:
     enabled: false
+
+saml:
+  name: saml
+  label: 'SAML'
+  args:
+    assertion_consumer_service_url: 'https://gitlab.tgarcin.fr/users/auth/saml/callback'
+    idp_cert_fingerprint: 'a5:70:2c:82:c7:c6:02:8a:8c:75:79:98:eb:ea:01:94:10:6c:e5:d7'
+    idp_sso_target_url: 'https://auth.tgarcin.fr/application/saml/gitlab/sso/binding/redirect/'
+    issuer: 'https://gitlab.tgarcin.fr'
+    name_identifier_format: 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress'
+    attribute_statements:
+      email: [ 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress' ]
+      first_name: [ 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name' ]
+      nickname: [ 'http://schemas.goauthentik.io/2021/02/saml/username' ]
 
 gitlab:
   certmanager:
