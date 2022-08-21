@@ -1,0 +1,10 @@
+kubernetes-dashboard:
+  ingress:
+    enabled: true
+    className: nginx
+    hosts:
+      - k8s-dashboard.int.tgarcin.fr
+    tls:
+      - secretName:  k8s-dashboard.int.tgarcin.fr-tls
+        hosts:
+          - k8s-dashboard.int.tgarcin.fr
