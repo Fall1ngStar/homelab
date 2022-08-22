@@ -14,7 +14,7 @@ firefly-iii:
               pathType: Prefix
               service:
                 name: firefly-iii
-                port: 80
+                port: 8080
       tls:
         - secretName: firefly.tgarcin.fr-tls
           hosts:
