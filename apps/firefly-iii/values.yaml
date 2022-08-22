@@ -1,7 +1,11 @@
 firefly-iii:
+  image:
+    tag: 5.7.10
   ingress:
     main:
       enabled: true
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
       hosts:
         - host: firefly.tgarcin.fr
           paths:
