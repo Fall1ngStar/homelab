@@ -1,0 +1,18 @@
+firefly-iii:
+  ingress:
+    main:
+      enabled: true
+      hosts:
+        - firefly.tgarcin.fr
+  postgresql:
+    primary:
+      persistence:
+        enabled: true
+        storageClass: longhorn
+        size: 1Gi
+  redis:
+    master:
+      persistence:
+        enabled: true
+        storageClass: longhorn
+        size: 1Gi
