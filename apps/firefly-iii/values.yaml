@@ -15,12 +15,14 @@ firefly-iii:
           hosts:
             - firefly.tgarcin.fr
   postgresql:
+    enabled: true
     primary:
       persistence:
         enabled: true
         storageClass: longhorn
         size: 1Gi
   redis:
+    enabled: true
     master:
       persistence:
         enabled: true
