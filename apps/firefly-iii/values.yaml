@@ -3,7 +3,11 @@ firefly-iii:
     main:
       enabled: true
       hosts:
-        - firefly.tgarcin.fr
+        - host: firefly.tgarcin.fr
+      tls:
+        - secretName: firefly.tgarcin.fr-tls
+          hosts:
+            - firefly.tgarcin.fr
   postgresql:
     primary:
       persistence:
