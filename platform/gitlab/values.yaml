@@ -5,6 +5,7 @@ global:
       allowSingleSignOn: [ "saml" ]
       syncProfileFromProvider: [ "saml" ]
       syncProfileAttributes: [ "email" ]
+      autoSignInWithProvider: saml
       blockAutoCreatedUsers: false
       autoLinkSamlUser: true
       providers:
