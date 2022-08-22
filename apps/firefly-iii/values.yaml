@@ -4,6 +4,12 @@ firefly-iii:
       enabled: true
       hosts:
         - host: firefly.tgarcin.fr
+          paths:
+            - path: /
+              pathType: Prefix
+              service:
+                name: firefly-iii
+                port: 80
       tls:
         - secretName: firefly.tgarcin.fr-tls
           hosts:
