@@ -28,6 +28,8 @@ firefly-iii:
         size: 1Gi
   redis:
     enabled: true
+    replica:
+      replicaCount: 0
     master:
       persistence:
         enabled: true
