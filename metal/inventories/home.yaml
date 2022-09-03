@@ -3,13 +3,13 @@ metal:
     masters:
       hosts:
         tenes: 
-          ansible_host: 10.0.0.36
+          ansible_host: 10.0.0.43
           ansible_user: root
     workers:
       hosts:
         helios:
-          ansible_host: 10.0.0.35
+          ansible_host: 10.0.0.42
           ansible_user: root
         eryx:
-          ansible_host: 10.0.0.34
+          ansible_host: 10.0.0.41
           ansible_user: root
