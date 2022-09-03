@@ -12,10 +12,10 @@ spec:
         revision: {{ $.Values.gitops.revision }}
         directories:
           - path: {{ $stack.name }}/*
-          {{ if eq "bootstrap" ($stack | toString) }}
-          - path: root
+          {{- if eq $stack.name "bootstrap" }}
+          - path: bootstrap/root
             exclude: true
-          {{ end }}
+          {{- end }}
   template:
     metadata:
       name: '{{ `{{path.basename}}` }}'
