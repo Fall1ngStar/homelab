@@ -25,7 +25,7 @@ spec:
                 - name: PGPASSWORD
                   valueFrom:
                     secretKeyRef:
-                      name: {{ .Release.Name }}-secrets
+                      name: {{ .Release.Name }}-postgresql
                       key: password
                 - name: PGHOST
                   value: firefly-iii-postgres

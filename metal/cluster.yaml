@@ -1,4 +1,5 @@
 - name: Create Kubernetes cluster
   hosts: metal
   roles:
+    - softwareupdates
     - k3s
