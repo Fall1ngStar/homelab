@@ -1,0 +1,41 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ .Release.Name}}-backup-cron
+spec:
+  schedule: "0 0 * * *"
+  concurrencyPolicy: Forbid
+  failedJobsHistoryLimit: 2
+  successfulJobsHistoryLimit: 2
+  jobTemplate:
+    spec:
+      activeDeadlineSeconds: 120
+      backoffLimit: 5
+      template:
+        spec:
+          containers:
+            - name: backup
+              image: postgres:latest
+              imagePullPolicy: IfNotPresent
+              command:
+                - sh
+                - -c
+                - pg_dump > /backups/firefly-$(date --iso-8601=seconds)
+              env:
+                - name: PGPASSWORD
+                  valueFrom:
+                    secretKeyRef:
+                      name: {{ .Release.Name }}-secrets
+                      key: password
+                - name: PGHOST
+                  value: firefly-iii-postgres
+                - name: PGUSER
+                  value: firefly
+              volumeMounts:
+                - mountPath: /backups/
+                  name: firefly-iii-backup
+          restartPolicy: Never
+          volumes:
+            - name: firefly-iii-backup
+              persistentVolumeClaim:
+                claimName: {{ .Release.Name }}-backup-claim

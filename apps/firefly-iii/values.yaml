@@ -35,3 +35,7 @@ firefly-iii:
         enabled: true
         storageClass: longhorn
         size: 1Gi
+
+backups:
+  address: 10.0.0.252
+  path: "/volume1/Kubernetes/backups/firefly"
