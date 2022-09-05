@@ -28,7 +28,7 @@ spec:
                       name: {{ .Release.Name }}-postgresql
                       key: password
                 - name: PGHOST
-                  value: firefly-iii-postgres
+                  value: {{ .Release.Name }}-postgresql
                 - name: PGUSER
                   value: firefly
               volumeMounts:
