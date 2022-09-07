@@ -6,22 +6,22 @@ minio:
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
     hosts:
-      - s3.tgarcin.fr
+      - s3-raw.tgarcin.fr
     tls:
       - secretName: s3-tls-certificate
         hosts:
-          - s3.tgarcin.fr
+          - s3-raw.tgarcin.fr
   consoleIngress:
     enabled: true
     ingressClassName: nginx
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
     hosts:
-      - s3-console.tgarcin.fr
+      - s3.tgarcin.fr
     tls:
       - secretName: s3-console-tls-certificate
         hosts:
-          - s3-console.tgarcin.fr
+          - s3.tgarcin.fr
   resources:
     requests:
       memory: 4Gi
