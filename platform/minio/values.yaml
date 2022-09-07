@@ -9,6 +9,15 @@ minio:
       - secretName: s3-tls-certificate
         hosts:
           - s3.tgarcin.fr
+  consoleIngress:
+    enabled: true
+    ingressClassName: nginx
+    hosts:
+      - s3-console.tgarcin.fr
+    tls:
+      - secretName: s3-console-tls-certificate
+        hosts:
+          - s3-console.tgarcin.fr
   resources:
     requests:
       memory: 4Gi
