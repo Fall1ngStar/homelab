@@ -1,0 +1,10 @@
+minio:
+  mode: standalone
+  ingress:
+    enabled: true
+    hosts:
+      - s3.tgarcin.fr
+    tls:
+      - secretName: s3-tls-certificate
+        hosts:
+          - s3.tgarcin.fr

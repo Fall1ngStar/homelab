@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+export KUBECONFIG=$(pwd)/metal/kubeconfig.yaml
+
+BACKUP_FILE=$1
+SECRET=$(kubectl get -n firefly-iii secrets firefly-iii-postgresql -o json)
+POSTGRES_PASSWORD=$(echo "$SECRET" | jq -r '.data."postgres-password"' | base64 -d)
+PASSWORD=$(echo "$SECRET" | jq -r '.data.password' | base64 -d)
+
+cat << EOF > /tmp/password
+$PASSWORD
+EOF
+
+cat << EOF > /tmp/delete-database
+$POSTGRES_PASSWORD
+DROP DATABASE firefly;
+CREATE DATABASE firefly;
+EOF
+
+cat /tmp/delete-database | kubectl exec -n firefly-iii -i firefly-iii-postgresql-0 -- psql -U postgres postgres
+cat /tmp/password $BACKUP_FILE | kubectl exec -n firefly-iii -i firefly-iii-postgresql-0 -- psql -U firefly firefly
+
+POD=$(kubectl get -n firefly-iii pod --selector=app.kubernetes.io/name=firefly-iii -o jsonpath="{.items[*].metadata.name}")
+kubectl delete -n firefly-iii pod $POD
