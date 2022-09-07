@@ -1,2 +1,4 @@
 minio:
   mode: standalone
+  persistence:
+    storageClass: nfs-csi
