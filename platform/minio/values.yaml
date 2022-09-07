@@ -8,3 +8,6 @@ minio:
       - secretName: s3-tls-certificate
         hosts:
           - s3.tgarcin.fr
+  metrics:
+    serviceMonitor:
+      enabled: false
