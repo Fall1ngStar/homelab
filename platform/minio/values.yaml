@@ -1,4 +1,7 @@
 minio:
   mode: standalone
+  resources:
+    requests:
+      memory: 4Gi
   persistence:
     storageClass: nfs-csi
