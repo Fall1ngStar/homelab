@@ -3,6 +3,8 @@ minio:
   ingress:
     enabled: true
     ingressClassName: nginx
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
     hosts:
       - s3.tgarcin.fr
     tls:
@@ -12,6 +14,8 @@ minio:
   consoleIngress:
     enabled: true
     ingressClassName: nginx
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
     hosts:
       - s3-console.tgarcin.fr
     tls:
