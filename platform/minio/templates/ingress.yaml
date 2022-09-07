@@ -11,12 +11,12 @@ spec:
     - host: s3.tgarcin.fr
       http:
         paths:
-          pathType: Prefix
-          backend:
-            service:
-              name: {{ $fullName }}
-              port:
-                number: {{ $servicePort }}
+          - pathType: Prefix
+            backend:
+              service:
+                name: {{ $fullName }}
+                port:
+                  number: {{ $servicePort }}
   tls:
     - secretName: s3-tls-certificate
       hosts:
