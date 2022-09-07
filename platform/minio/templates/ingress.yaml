@@ -1,0 +1,23 @@
+{{- $fullName := include "minio.fullname" . -}}
+{{- $servicePort := .Values.minio.service.port -}}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+  name: {{ .Release.Name }}
+spec:
+  rules:
+    - host: s3.tgarcin.fr
+      http:
+        paths:
+          pathType: Prefix
+          backend:
+            service:
+              name: {{ $fullName }}
+              port:
+                number: {{ $servicePort }}
+  tls:
+    - secretName: s3-tls-certificate
+      hosts:
+        - s3.tgarcin.fr
