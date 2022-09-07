@@ -1,5 +1,14 @@
 minio:
   mode: standalone
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    hosts:
+      - s3.tgarcin.fr
+    tls:
+      - secretName: s3-tls-certificate
+        hosts:
+          - s3.tgarcin.fr
   resources:
     requests:
       memory: 4Gi
