@@ -13,3 +13,4 @@ spec:
     path: {{ .Values.storage.path }}
   mountOptions:
     - nfsvers=4.1
+    - hard
