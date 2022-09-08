@@ -31,4 +31,5 @@ minio:
     requests:
       memory: 4Gi
   persistence:
+    storageClass: nfs-csi
     VolumeName: minio
