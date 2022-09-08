@@ -1,6 +1,6 @@
 storage:
   address: 10.0.0.252
-  path: /volume1/Kubernetes/s3
+  path: /volume1/S3
   capacity: 500Gi
 
 minio:

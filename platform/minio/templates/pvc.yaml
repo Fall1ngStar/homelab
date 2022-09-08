@@ -1,19 +1,16 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: minio
+  name: {{ .Release.Name }}
 spec:
-  accessModes:
-  - ReadWriteOnce
   capacity:
-    storage: 500Gi
-  csi:
-    driver: nfs.csi.k8s.io
-    volumeAttributes:
-      server: 10.0.0.252
-      share: /volume1/Kubernetes/s3
-    volumeHandle: 10.0.0.252#volume1/Kubernetes/s3
-  mountOptions:
-  - hard
-  - nfsvers=4.1
+    storage: {{ .Values.storage.capacity }}
   storageClassName: nfs-csi
+  accessModes:
+    - ReadWriteOnce
+  nfs:
+    server: {{ .Values.storage.address }}
+    path: {{ .Values.storage.path }}
+  mountOptions:
+    - nfsvers=4.1
+    - hard
