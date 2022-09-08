@@ -1,3 +1,4 @@
+{{ if false }}
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -14,3 +15,4 @@ spec:
   mountOptions:
     - nfsvers=4.1
     - hard
+{{ end }}
