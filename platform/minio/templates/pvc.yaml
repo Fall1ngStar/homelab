@@ -7,7 +7,7 @@ spec:
     storage: {{ .Values.storage.capacity }}
   storageClassName: nfs-csi
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   nfs:
     server: {{ .Values.storage.address }}
     path: {{ .Values.storage.path }}
