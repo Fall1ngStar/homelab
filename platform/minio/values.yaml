@@ -31,4 +31,4 @@ minio:
     requests:
       memory: 4Gi
   persistence:
-    volumeName: minio
+    VolumeName: minio
