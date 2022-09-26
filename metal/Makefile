@@ -1,9 +1,0 @@
-.PHONY: *
-
-default: cluster
-
-ping:
-	ansible -i inventories/home.yaml all -m ping
-
-cluster:
-	ansible-playbook -i inventories/home.yaml cluster.yaml
