@@ -1,6 +1,6 @@
 firefly-iii:
   image:
-    tag: version-5.7.10
+    tag: version-5.7.13
   ingress:
     main:
       enabled: true
